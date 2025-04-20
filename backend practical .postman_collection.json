@@ -1,0 +1,775 @@
+{
+	"info": {
+		"_postman_id": "8daca1a6-ac6a-4048-bbf4-c174fbf4835b",
+		"name": "backend practical ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19009701",
+		"_collection_link": "https://event-management-7492.postman.co/workspace/event-management-Workspace~f9c6ef88-6255-447f-9b10-1441994319da/collection/19009701-8daca1a6-ac6a-4048-bbf4-c174fbf4835b?action=share&source=collection_link&creator=19009701"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "LOGIN-http://localhost:3000/auth/login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register-http://localhost:3000/auth/register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user@example.com\",\r\n  \"password\": \"password123\",\r\n  \"name\": \"John Doe\",\r\n  \"userType\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prodcut ",
+			"item": [
+				{
+					"name": "Searching and filtering",
+					"item": [
+						{
+							"name": "GET ALL- http://localhost:3000/product",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "category-http://localhost:3000/product?category=Electronics",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/product?category=Electronics",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "Electronics"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Name-http://localhost:3000/product?name=updated product name",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/product?name=updated product name",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "updated product name"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "category-name-http://localhost:3000/product?category=Electronics&name=Updated Product Name",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/product?category=Electronics&name=Updated Product Name",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"product"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "Electronics"
+										},
+										{
+											"key": "name",
+											"value": "Updated Product Name"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "UPLOAD IMAGE- http://localhost:3000/product/upload",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": [
+										"/C:/Users/dcham/Downloads/do-not-copy-160137_1280.png",
+										"/C:/Users/dcham/Downloads/sign-42530_1920.png"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Product-http://localhost:3000/product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJzdWIiOjEsImlhdCI6MTc0NTEyODQ3MSwiZXhwIjoxNzQ1MTMyMDcxfQ.pjifWpKFLfYpAzXUriGp2DmRI1LI9Qla0INwvW6_B0Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"New Product\",\r\n    \"image\": [\r\n       \"file-1745128500604-497390903.png\",\r\n        \"file-1745128500607-645642241.jpg\"\r\n    ],\r\n    \"productCode\": \"P-12\",\r\n    \"price\": 99.99,\r\n    \"category\": \"Hardware\",\r\n    \"manufacturerDate\": \"2024-01-01\",\r\n    \"expiryDate\": \"2025-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE-http://localhost:3000/product/:id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJzdWIiOjEsImlhdCI6MTc0NTA1NDM4MCwiZXhwIjoxNzQ1MDU3OTgwfQ.-2aI9Vg7_x9S6ooB2T1ComJIBxAFm4oYApjYWr1RvVc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Updated Product Name\",\r\n  \"price\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE-http://localhost:3000/product/:id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJzdWIiOjEsImlhdCI6MTc0NTA1NDM4MCwiZXhwIjoxNzQ1MDU3OTgwfQ.-2aI9Vg7_x9S6ooB2T1ComJIBxAFm4oYApjYWr1RvVc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AWS",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register-http://13.209.19.134:3000/auth/register",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"alice@example.com\",\n    \"password\": \"password123\",\n    \"name\": \"Alice\"\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://13.209.19.134:3000/auth/register",
+									"protocol": "http",
+									"host": [
+										"13",
+										"209",
+										"19",
+										"134"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login-http://13.209.19.134:3000/auth/login",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"alice@example.com\",\n    \"password\": \"password123\"\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://13.209.19.134:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"13",
+										"209",
+										"19",
+										"134"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Prodcut",
+					"item": [
+						{
+							"name": " List / Search / Filter Products",
+							"item": [
+								{
+									"name": "List all-http://13.209.19.134:3000/product",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <ACCESS_TOKEN>",
+												"disabled": true
+											}
+										],
+										"url": {
+											"raw": "http://13.209.19.134:3000/product",
+											"protocol": "http",
+											"host": [
+												"13",
+												"209",
+												"19",
+												"134"
+											],
+											"port": "3000",
+											"path": [
+												"product"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filter by name- http://13.209.19.134:3000/product?name=Gadget Pro",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://13.209.19.134:3000/product?name=Gadget Pro",
+											"protocol": "http",
+											"host": [
+												"13",
+												"209",
+												"19",
+												"134"
+											],
+											"port": "3000",
+											"path": [
+												"product"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "Gadget Pro"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": " Filter by category-http://13.209.19.134:3000/product?category=Electronics",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://13.209.19.134:3000/product?category=Electronics",
+											"protocol": "http",
+											"host": [
+												"13",
+												"209",
+												"19",
+												"134"
+											],
+											"port": "3000",
+											"path": [
+												"product"
+											],
+											"query": [
+												{
+													"key": "category",
+													"value": "Electronics"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Filter by name and category http://13.209.19.134:3000/product?category=Electronics&name=pro",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://13.209.19.134:3000/product?category=Electronics&name=pro",
+											"protocol": "http",
+											"host": [
+												"13",
+												"209",
+												"19",
+												"134"
+											],
+											"port": "3000",
+											"path": [
+												"product"
+											],
+											"query": [
+												{
+													"key": "category",
+													"value": "Electronics"
+												},
+												{
+													"key": "name",
+													"value": "pro"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Upload-http://13.209.19.134:3000/product/upload",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <ACCESS_TOKEN>",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": [
+												"/C:/Users/dcham/OneDrive/Desktop/0x0.webp",
+												"/C:/Users/dcham/OneDrive/Desktop/1670434765127.png"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "http://13.209.19.134:3000/product/upload",
+									"protocol": "http",
+									"host": [
+										"13",
+										"209",
+										"19",
+										"134"
+									],
+									"port": "3000",
+									"path": [
+										"product",
+										"upload"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create prodcut-http://13.209.19.134:3000/product",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsaWNlQGV4YW1wbGUuY29tIiwic3ViIjoxLCJpYXQiOjE3NDUxNDE4OTIsImV4cCI6MTc0NTE0NTQ5Mn0.8UK4QUmlQmyyXr0ZEG6nXAmjQawI9YvKGEV4a9GOpF4"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"My Gadget\",\n    \"image\": [\n        \"file-1745141958808-247926860.webp\",\n        \"file-1745141958808-296463587.png\"\n    ],\n    \"productCode\": \"GAD-001\",\n    \"price\": 49.99,\n    \"category\": \"Electronics\",\n    \"manufacturerDate\": \"2025-01-01\",\n    \"expiryDate\": \"2026-01-01\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://13.209.19.134:3000/product",
+									"protocol": "http",
+									"host": [
+										"13",
+										"209",
+										"19",
+										"134"
+									],
+									"port": "3000",
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE-http://13.209.19.134:3000/product/1",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsaWNlQGV4YW1wbGUuY29tIiwic3ViIjoxLCJpYXQiOjE3NDUxNDE4OTIsImV4cCI6MTc0NTE0NTQ5Mn0.8UK4QUmlQmyyXr0ZEG6nXAmjQawI9YvKGEV4a9GOpF4"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"price\": 39.99,\n    \"name\": \"My Gadget Pro\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://13.209.19.134:3000/product/1",
+									"protocol": "http",
+									"host": [
+										"13",
+										"209",
+										"19",
+										"134"
+									],
+									"port": "3000",
+									"path": [
+										"product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://13.209.19.134:3000/product",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <ACCESS_TOKEN>",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://13.209.19.134:3000/product",
+									"protocol": "http",
+									"host": [
+										"13",
+										"209",
+										"19",
+										"134"
+									],
+									"port": "3000",
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete-http://13.209.19.134:3000/product/42",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsaWNlQGV4YW1wbGUuY29tIiwic3ViIjoxLCJpYXQiOjE3NDUxNDE4OTIsImV4cCI6MTc0NTE0NTQ5Mn0.8UK4QUmlQmyyXr0ZEG6nXAmjQawI9YvKGEV4a9GOpF4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://13.209.19.134:3000/product/42",
+									"protocol": "http",
+									"host": [
+										"13",
+										"209",
+										"19",
+										"134"
+									],
+									"port": "3000",
+									"path": [
+										"product",
+										"42"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

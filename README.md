@@ -1,99 +1,186 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+---
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# **Backend Practical Task - NestJS Project**
 
-## Description
+## **Project Overview**
+This is a backend application built using **NestJS** and **TypeScript**, designed to handle user authentication, product management (CRUD operations), and image handling. The application uses a PostgreSQL database to store data, along with **PM2** for process management and **JWT** for secure authentication. It also includes the use of **nestjs/schedule** for scheduling tasks like cron jobs.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This project is structured to demonstrate various backend concepts including user registration, login, product management, and integration of external libraries for handling images and files.
 
-## Project setup
+## **Features**
 
+- **User Authentication:**
+  - Register new users
+  - Login with JWT token-based authentication
+  - Secure API endpoints using JWT
+
+- **Product Management:**
+  - Create, Read, Update, and Soft-delete products
+  - Support for product image uploads (with multiple image support)
+  - Filter products by category, name, and other criteria
+
+- **File Uploads:**
+  - Upload product images and serve them dynamically using a URL
+  - Support for multiple file types (e.g., `.png`, `.jpg`)
+
+- **PM2 Process Management:**
+  - App runs in production with process management via PM2 for uptime stability and log management
+
+- **Scheduled Tasks:**
+  - Cron jobs for scheduling periodic tasks, demonstrated using **nestjs/schedule**
+
+## **Tech Stack**
+
+- **NestJS** - The framework used for the project, built with **TypeScript** and utilizing decorators and modular architecture for maintainable code.
+- **TypeORM** - ORM for interacting with the PostgreSQL database.
+- **PostgreSQL** - Database used for storing application data.
+- **JWT** - For secure user authentication.
+- **PM2** - Process manager for keeping the application running in the background with automatic restarts.
+- **Cloud Storage/Local Storage** - Handles image uploads, either using cloud storage or local file handling.
+- **nestjs/schedule** - Task scheduling library used for cron jobs.
+- **Node.js** - The runtime environment for building the application.
+
+## **Setup Instructions**
+
+### **1. Clone the Repository**
+Clone the repository to your local machine or server.
 ```bash
-$ npm install
+git clone https://github.com/<your-github-username>/backend-practical.git
+cd backend-practical
 ```
 
-## Compile and run the project
-
+### **2. Install Dependencies**
+Install the required dependencies using `npm` or `yarn`.
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
+# or
+yarn install
 ```
 
-## Run tests
+### **3. Configure Database**
+Ensure you have PostgreSQL installed and configured. Create a new database for the project and update the **`ormconfig.json`** or the `TypeORM` configuration file with your PostgreSQL connection details.
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+Example:
+```json
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "yourpassword",
+  "database": "backend_practical",
+  "entities": ["dist/**/*.entity{.ts,.js}"],
+  "synchronize": true
+}
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g mau
-$ mau deploy
+### **4. Set up Environment Variables**
+Create a `.env` file in the root directory with the following variables:
+```env
+DATABASE_URL=postgres://user:password@localhost:5432/database
+JWT_SECRET=your-jwt-secret-key
+PORT=3000
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### **5. Run the Application**
+Run the application using **NestJS CLI**:
+```bash
+npm run start:dev
+```
+This will start the development server on port `3000`.
 
-## Resources
+For production, you can use **PM2**:
+```bash
+pm2 start dist/main.js --name backend-practical
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### **6. Testing the API Endpoints**
+Use any API testing tool like **Postman** or **curl** to test the API endpoints.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+**Register a new user:**
+```bash
+POST /auth/register
+```
 
-## Support
+**Login to get JWT token:**
+```bash
+POST /auth/login
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+**Upload product images:**
+```bash
+POST /product/upload
+```
 
-## Stay in touch
+**Create a new product:**
+```bash
+POST /product
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+**Update a product:**
+```bash
+PUT /product/:id
+```
 
-## License
+**Delete a product (soft delete):**
+```bash
+DELETE /product/:id
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### **7. Cron Jobs/Scheduled Tasks**
+The app uses **nestjs/schedule** to run scheduled tasks. You can add cron jobs to perform specific tasks periodically.
+
+Example:
+```typescript
+import { Cron } from '@nestjs/schedule';
+
+@Injectable()
+export class TaskService {
+  @Cron('0 0 * * *')
+  handleCron() {
+    console.log('This task will run every day at midnight!');
+  }
+}
+```
+
+## **Project Structure**
+```
+├── src
+│   ├── auth
+│   │   └── auth.controller.ts
+│   │   └── auth.service.ts
+│   ├── product
+│   │   └── product.controller.ts
+│   │   └── product.service.ts
+│   ├── shared
+│   │   └── helpers/
+│   ├── schedule
+│   │   └── task.service.ts
+│   ├── app.module.ts
+├── .env
+├── tsconfig.json
+├── package.json
+├── ormconfig.json
+└── pm2.config.js
+```
+
+## **Running in Production**
+For production environments, **PM2** is used to keep the application running as a background process:
+1. Install PM2 globally:
+   ```bash
+   npm install -g pm2
+   ```
+2. Start the application with PM2:
+   ```bash
+   pm2 start dist/main.js --name backend-practical
+   ```
+3. Check logs:
+   ```bash
+   pm2 logs
+   ```
+
+## **Contributing**
+Feel free to fork this project, create a branch, and submit pull requests. Contributions are always welcome!
+
+---
