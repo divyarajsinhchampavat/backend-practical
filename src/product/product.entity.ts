@@ -1,3 +1,4 @@
+import { IsArray } from "class-validator";
 import { User } from "src/user/user.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
@@ -10,7 +11,8 @@ export class Product {
   name: string;
 
   @Column('text', { array: true })
-  image: string[]; // Array to store image filenames
+  @IsArray()
+  image: string[]; 
 
   @Column({ unique: true })
   productCode: string;

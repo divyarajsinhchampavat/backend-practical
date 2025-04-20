@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { ProductModule } from './product/product.module';
 import { ConfigModule } from '@nestjs/config';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -22,8 +23,7 @@ import { ConfigModule } from '@nestjs/config';
       autoLoadEntities: true,
       synchronize: true, // Development only
     }),
-    // TypeOrmModule.forFeature([Product]),
-    // ScheduleModule.forRoot(),
+    ScheduleModule.forRoot(),
     UserModule,
     AuthModule,
     ProductModule,
