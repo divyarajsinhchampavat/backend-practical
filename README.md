@@ -1,12 +1,12 @@
 
 ---
 
-# **Backend Practical Task - NestJS Project**
+# **Backend Practical Demo - NestJS Project**
 
 ## **Project Overview**
 This is a backend application built using **NestJS** and **TypeScript**, designed to handle user authentication, product management (CRUD operations), and image handling. The application uses a PostgreSQL database to store data, along with **PM2** for process management and **JWT** for secure authentication. It also includes the use of **nestjs/schedule** for scheduling tasks like cron jobs.
 
-This project is structured to demonstrate various backend concepts including user registration, login, product management, and integration of external libraries for handling images and files.
+This project is structured to demonstrate various backend concepts, including user registration, login, product management, and integration of external libraries for handling images and files.
 
 ## **Features**
 
